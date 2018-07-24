@@ -3,10 +3,41 @@ export const FETCH_POSTS  = 'fetch_posts';
 export const CREATE_POST = 'create_post';
 export const FETCH_POST = 'fetch_post';
 export const DELETE_POST = 'delete_post';
-export const CREATE_GUIDEDMEDITATION = 'create_guidedmeditation'
+export const CREATE_GUIDEDMEDITATION = 'create_guidedmeditation';
+export const CREATE_BREATHINGEXERCISE = 'create_breathingexercise';
+export const CREATE_COLDSHOWER = 'create_coldshower';
 
 const ROOT_URL = 'http://localhost:4000';
 
+// Cold Shower \\ 
+
+export function createColdShower(values, callback) {
+  const request = axios.post(`${ROOT_URL}/coldshowers`, values).then(()=> callback());
+
+  return {
+    type: CREATE_COLDSHOWER,
+    payload: request
+  };
+
+} 
+// Cold Shower \\ 
+
+//------------------------------------------------------------\\
+
+// Breathing Exercise \\ 
+
+export function createBreathingExercise(values, callback) {
+  const request = axios.post(`${ROOT_URL}/breathingexercises`, values).then(()=> callback());
+
+  return {
+    type: CREATE_BREATHINGEXERCISE,
+    payload: request
+  };
+
+} 
+// Breathing Exercise \\ 
+
+//------------------------------------------------------------\\
 
 // Guided Meditations \\
 export function createGuidedMeditation(values, callback) {

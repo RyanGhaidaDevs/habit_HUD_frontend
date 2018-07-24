@@ -38,7 +38,7 @@ import { bindActionCreators } from 'redux';
             <CardTitle>Breathing Exercise</CardTitle>
             <CardSubtitle></CardSubtitle>
             <CardText>Challenging breathing exercise; made popular by Whim Hoff</CardText>
-            <Link className="btn btn-primary" to="/posts/new">
+            <Link className="btn btn-primary" to="/breathingExercise">
             Take The Breathing Challenge
             </Link>
           </CardBody>
@@ -49,7 +49,7 @@ import { bindActionCreators } from 'redux';
             <CardTitle>Cold Immersion</CardTitle>
             <CardSubtitle></CardSubtitle>
             <CardText>Cold immersion is one of the most powerful habits a human can integrate into their lives. Popularized by Whim Hoff, commitment to this habit can have extraordinary results both physically and mentally  </CardText>
-            <Link className="btn btn-primary" to="/guidedMeditation">
+            <Link className="btn btn-primary" to="/coldShower">
             Take The Cold Shower Challenge
             </Link>
           </CardBody>
