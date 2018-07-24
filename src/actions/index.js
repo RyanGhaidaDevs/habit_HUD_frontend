@@ -3,10 +3,26 @@ export const FETCH_POSTS  = 'fetch_posts';
 export const CREATE_POST = 'create_post';
 export const FETCH_POST = 'fetch_post';
 export const DELETE_POST = 'delete_post';
+export const CREATE_GUIDEDMEDITATION = 'create_guidedmeditation'
 
 const ROOT_URL = 'http://localhost:4000';
 
 
+// Guided Meditations \\
+export function createGuidedMeditation(values, callback) {
+  const request = axios.post(`${ROOT_URL}/guidedmeditations`, values).then(()=> callback());
+
+  return {
+    type: CREATE_GUIDEDMEDITATION,
+    payload: request
+  };
+
+} 
+// Guided Meditations \\ 
+
+//------------------------------------------------------------\\ 
+
+// Journals \\ 
 export function fetchPosts() {
   const request = axios.get(`${ROOT_URL}/journals`);
 
@@ -19,13 +35,14 @@ export function fetchPosts() {
 
 export function createPost(values, callback) {
   // second arg is the data we're sending with our request; values. 
-  const request = axios.post(`${ROOT_URL}/journals`, values).then(()=> callback())
+  const request = axios.post(`${ROOT_URL}/journals`, values).then(()=> callback());
 
   return {
     type: CREATE_POST,
     payload: request
   };
 }
+
 
 export function fetchPost(id) {
   const request = axios.get(`${ROOT_URL}/journals/${id}`)
@@ -44,3 +61,4 @@ export function deletePost(id, callback) {
     payload: id
   };
 }
+// Journals \\ 

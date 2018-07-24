@@ -9,7 +9,7 @@ import PostsIndex from './components/posts_index';
 import PostsNew from './components/posts_new';
 import PostsShow from './components/posts_show';
 import Home from './containers/home'
-import GuidedMeditation from './components/guidedMeditation_index';
+import GuidedMeditation from './components/guidedMeditation_new';
 
 //Added redux-promise to handle asych fetches; add as first argument. 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
