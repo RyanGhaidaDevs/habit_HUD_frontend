@@ -5,11 +5,31 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'; 
 
+import { Nav, Navbar, NavItem } from "react-bootstrap";
+
  export default class Home extends Component {
 
   render() {
       return (
       <div>
+        <Navbar fluid collapseOnSelect>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <Link to="/posts">Goal Statement</Link>
+          </Navbar.Brand>
+          <Navbar.Brand>
+            <Link to="/">View Your Logs</Link>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse>
+          <Nav pullRight>
+            <NavItem href="/signup">Signup</NavItem>
+            <NavItem href="/login">Login</NavItem>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar> <br/>
+      
         <Card body outline color="primary">
           <CardImg top width="33%" src="https://ideapod.com/wp-content/uploads/2017/12/stoicism-marcus-aurelius-leadership-e1498983897275.jpg" alt="Card image cap" />
           <CardBody>
