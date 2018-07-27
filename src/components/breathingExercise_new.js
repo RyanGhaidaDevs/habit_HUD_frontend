@@ -3,6 +3,8 @@ import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createBreathingExercise } from '../actions';
+import YouTube from 'react-youtube';
+
  
  
 class BreathingExercise extends Component {
@@ -45,8 +47,22 @@ class BreathingExercise extends Component {
     //Reduxform adds property to our component; handleSubmit is one of them
     const { handleSubmit } = this.props
 
+    const opts = {
+      height: '390',
+      width: '640',
+      playerVars: { // https://developers.google.com/youtube/player_parameters
+        autoplay: 1
+      }
+    };
+
     return(
-      //Redux form's handleSubmit will handle validation before passing to onSubmit
+      <div>
+      <YouTube
+      className="youtube"
+      videoId="LU6Oi80n5J4"
+      opts={opts}
+      onReady={this._onReady}
+      />
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
       <Field 
           label="user_id"
@@ -71,7 +87,12 @@ class BreathingExercise extends Component {
         <button type="submit" className="btn btn-primary">Submit</button>
         <Link to="/home" className="btn btn-danger"> Cancel </Link>
       </form>
+      </div>
     )
+  }
+  _onReady(event) {
+    // access to player in all event handlers via event.target
+    event.target.pauseVideo();
   }
 }
 

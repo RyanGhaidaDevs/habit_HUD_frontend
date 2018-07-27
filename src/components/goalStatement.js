@@ -2,12 +2,13 @@ import React, { Component } from 'react' ;
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { createColdShower } from '../actions';
-import YouTube from 'react-youtube';
+import { createGoal } from '../actions';
+import '../style/style.css'
+
 
  
  
-class ColdShower extends Component {
+class GoalStatement extends Component {
 
   renderField(field) {
     //destructuring using es6
@@ -37,7 +38,7 @@ class ColdShower extends Component {
   onSubmit(values) {
     //bind(this); this === component scope
     //values is an Obj with all our form inputs.
-    this.props.createColdShower(values, () => {
+    this.props.createPost(values, () => {
       //this.props.history.push('path') will send user to specific path
       this.props.history.push('/home');
     });
@@ -47,14 +48,6 @@ class ColdShower extends Component {
     //Reduxform adds property to our component; handleSubmit is one of them
     const { handleSubmit } = this.props
 
-    const opts = {
-      height: '390',
-      width: '640',
-      playerVars: { // https://developers.google.com/youtube/player_parameters
-        autoplay: 1
-      }
-    };
-
     return(
       <div>
         <div className="text-xs-center"> 
@@ -62,27 +55,38 @@ class ColdShower extends Component {
             Back to Habit HUB 
           </Link>
         </div>
-        <YouTube
-          className="youtube"
-          videoId="GShvGXwaijg"
-          opts={opts}
-          onReady={this._onReady}
-        />
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-      <Field 
-          label="user_id"
-          name="user_id"
-          component={this.renderField}
-        /> 
-        <Field 
-          label="time"
-          name="time"
-          component={this.renderField}
-        /> 
-    
-        <button type="submit" className="btn btn-primary">Submit</button>
-        <Link to="/home" className="btn btn-danger"> Cancel </Link>
+        <div className="header">
+          <h2> Congratulations on beginning your journey to a better Self! </h2 >
+          <h3> Goal statements are the most important part of any self-bettering endeavour; there a few rules that, if utlized, can greatly increase your chance of success. </h3>
+        </div>
+        <div className="image-blurred-edge">
+          <img src="http://www.simonlee.online/wp-content/uploads/2015/05/mountainpath.jpg" alt="text" className="image"/> <br/>
+        </div>
+        <div className="header"> 
+       
+        <h3> Goals must be actionable, concise in their definition and with a set time-frame</h3>
+        </div>
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <Field 
+            label="user_id"
+            name="user_id"
+            component={this.renderField}
+          /> 
+          <Field 
+            label="What do you want to accomplish?"
+            name="body"
+            component={this.renderField}
+          /> 
+          <Field 
+            label="What realistic time-frame are you allocating for yourself? (in days)"
+            name="date"
+            component={this.renderField}
+          /> 
+                <h4> Once submitted you will not be able to edit this, so be certain you adhered to the parameters defined above!</h4>
+          <button type="submit" className="btn btn-primary">Submit</button>
+          <Link to="/home" className="btn btn-danger"> Cancel </Link>
       </form>
+
       </div>
     )
   }
@@ -94,10 +98,12 @@ class ColdShower extends Component {
 function validate(values) {
   const errors = {};
 
-  if(!values.time){
-    errors.time = "Enter a time in minutes!";
+  if(!values.body){
+    errors.body = "Enter your goal statement here";
   }
-
+  if(!values.date){
+    errors.date = "Enter a date";
+  }
   if(!values.user_id){
     errors.user_id = "Must be 1 (pending feature)"
   }
@@ -111,7 +117,7 @@ export default reduxForm({
   //redux From validation 
   validate: validate,
   //ensure that string assigned to form: property is unique; it is the state for this specific form. 
-  form: 'ColdShowerForm'
+  form: 'GoalStatementForm'
 })(
-  connect(null,{ createColdShower })(ColdShower)
+  connect(null,{ createGoal })(GoalStatement)
 );

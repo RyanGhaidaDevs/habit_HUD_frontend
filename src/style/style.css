@@ -1,0 +1,25 @@
+form a {
+  margin-left: 10px
+}
+
+.youtube {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  padding: 30px;
+
+}
+
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 8px 8px white inset;
+  width: 90%;
+}
+
+.header {
+  text-align: center;
+
+}
