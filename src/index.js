@@ -10,8 +10,14 @@ import PostsNew from './components/posts_new';
 import PostsShow from './components/posts_show';
 import Home from './containers/home';
 import GuidedMeditation from './components/guidedMeditation_new';
+import GuidedMeditationShow from './components/guidedMeditation_show';
 import BreathingExercise from './components/breathingExercise_new';
+import BreathingExerciseShow from './components/breathingExercise_show';
 import ColdShower from './components/coldShower_new';
+import ColdShowerShow from './components/coldShower_show';
+import Login from './components/login';
+import goalStatement from './components/goalStatement';
+
 
 
 //Added redux-promise to handle asych fetches; add as first argument. 
@@ -23,13 +29,17 @@ ReactDOM.render(
     <BrowserRouter>
     <div> 
       <Switch> 
+        <Route path="/login" component={Login} /> 
         <Route path="/posts/new" component={PostsNew} />
         <Route path="/posts/:id" component={PostsShow} />
         <Route path="/home" component={Home} />
-        <Route path="/breathingExercise" component={BreathingExercise} />
-        <Route path="/guidedMeditation" component={GuidedMeditation} />
-        <Route path="/coldShower" component={ColdShower} />
-
+        <Route path="/breathingExercises/new" component={BreathingExercise} />
+        <Route path="/breathingExercises/:id" component={BreathingExerciseShow} />
+        <Route path="/guidedMeditations/new" component={GuidedMeditation} />
+        <Route path="/guidedMeditations/:id" component={GuidedMeditationShow} />
+        <Route path="/coldShowers/new" component={ColdShower} />
+        <Route path="/coldShowers/:id" component={ColdShowerShow} />
+        <Route path="/goalStatement" component={goalStatement} /> 
         <Route path="/" component={PostsIndex} /> 
       </Switch>
     </div>

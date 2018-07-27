@@ -2,12 +2,10 @@ import React, { Component } from 'react' ;
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { createColdShower } from '../actions';
-import YouTube from 'react-youtube';
-
+import { createLogin } from '../actions';
  
  
-class ColdShower extends Component {
+class Login extends Component {
 
   renderField(field) {
     //destructuring using es6
@@ -37,7 +35,7 @@ class ColdShower extends Component {
   onSubmit(values) {
     //bind(this); this === component scope
     //values is an Obj with all our form inputs.
-    this.props.createColdShower(values, () => {
+    this.props.createLogin(values, () => {
       //this.props.history.push('path') will send user to specific path
       this.props.history.push('/home');
     });
@@ -47,27 +45,8 @@ class ColdShower extends Component {
     //Reduxform adds property to our component; handleSubmit is one of them
     const { handleSubmit } = this.props
 
-    const opts = {
-      height: '390',
-      width: '640',
-      playerVars: { // https://developers.google.com/youtube/player_parameters
-        autoplay: 1
-      }
-    };
-
     return(
-      <div>
-        <div className="text-xs-center"> 
-          <Link className="btn btn-success" to="/home">
-            Back to Habit HUB 
-          </Link>
-        </div>
-        <YouTube
-          className="youtube"
-          videoId="GShvGXwaijg"
-          opts={opts}
-          onReady={this._onReady}
-        />
+      //Redux form's handleSubmit will handle validation before passing to onSubmit
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
       <Field 
           label="user_id"
@@ -75,15 +54,18 @@ class ColdShower extends Component {
           component={this.renderField}
         /> 
         <Field 
-          label="time"
-          name="time"
+          label="username"
+          name="username"
           component={this.renderField}
         /> 
-    
+        <Field 
+          label="password"
+          name="password"
+          component={this.renderField}
+        /> 
         <button type="submit" className="btn btn-primary">Submit</button>
         <Link to="/home" className="btn btn-danger"> Cancel </Link>
       </form>
-      </div>
     )
   }
 }
@@ -94,10 +76,12 @@ class ColdShower extends Component {
 function validate(values) {
   const errors = {};
 
-  if(!values.time){
-    errors.time = "Enter a time in minutes!";
+  if(!values.username){
+    errors.username = "Please enter a username!";
   }
-
+  if(!values.password){
+    errors.password = "Please enter a password!";
+  }
   if(!values.user_id){
     errors.user_id = "Must be 1 (pending feature)"
   }
@@ -111,7 +95,7 @@ export default reduxForm({
   //redux From validation 
   validate: validate,
   //ensure that string assigned to form: property is unique; it is the state for this specific form. 
-  form: 'ColdShowerForm'
+  form: 'HandleLogin'
 })(
-  connect(null,{ createColdShower })(ColdShower)
+  connect(null,{ createLogin })(Login)
 );

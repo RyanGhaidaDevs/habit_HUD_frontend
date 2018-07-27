@@ -1,9 +1,7 @@
 import React, {Component} from 'react'; 
 import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
+  CardTitle, CardSubtitle} from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux'; 
 
 import { Nav, Navbar, NavItem } from "react-bootstrap";
 
@@ -15,7 +13,7 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
         <Navbar fluid collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to="/posts">Goal Statement</Link>
+            <Link to="/goalStatement">Goal Statement</Link>
           </Navbar.Brand>
           <Navbar.Brand>
             <Link to="/">View Your Logs</Link>
@@ -31,7 +29,7 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
       </Navbar> <br/>
       
         <Card body outline color="primary">
-          <CardImg top width="33%" src="https://ideapod.com/wp-content/uploads/2017/12/stoicism-marcus-aurelius-leadership-e1498983897275.jpg" alt="Card image cap" />
+          <CardImg top width="50%" src="https://ideapod.com/wp-content/uploads/2017/12/stoicism-marcus-aurelius-leadership-e1498983897275.jpg" alt="Card image cap" />
           <CardBody>
             <CardTitle>Journal Entry</CardTitle>
             <CardSubtitle></CardSubtitle>
@@ -42,34 +40,34 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
           </CardBody>
         </Card>
         <Card>
-          <CardImg top width="33%" src="https://i1.wp.com/blog.mindvalley.com/wp-content/uploads/2018/02/Alan-Watts.jpeg?fit=740%2C416&ssl=1" height="230px"alt="Card image cap" />
+          <CardImg top width="50%" src="https://i1.wp.com/blog.mindvalley.com/wp-content/uploads/2018/02/Alan-Watts.jpeg?fit=740%2C416&ssl=1" height="280px"alt="Card image cap" />
           <CardBody>
             <CardTitle>Guided Meditation</CardTitle>
             <CardSubtitle></CardSubtitle>
             <CardText>A clear mind is a prerequisite to any successful endeavour</CardText>
-            <Link className="btn btn-primary" to="/guidedMeditation">
+            <Link className="btn btn-primary" to="/guidedMeditations/new">
             Begin Your Guided Meditation
             </Link>
           </CardBody>
         </Card>
         <Card>
-          <CardImg top width="33%" src="http://rielworld.com/wp-content/uploads/2011/05/Buddhist-monk-Thailand.jpg" height="230px"alt="Card image cap" />
+          <CardImg top width="50%" src="http://caldwelltreecare.com/wp-content/uploads/2015/03/tree-care.jpg" height="280px"alt="Card image cap" />
           <CardBody>
             <CardTitle>Breathing Exercise</CardTitle>
             <CardSubtitle></CardSubtitle>
             <CardText>Challenging breathing exercise; made popular by Whim Hoff</CardText>
-            <Link className="btn btn-primary" to="/breathingExercise">
+            <Link className="btn btn-primary" to="/breathingExercises/new">
             Take The Breathing Challenge
             </Link>
           </CardBody>
         </Card>
         <Card>
-          <CardImg top width="33%" src="https://cdn.newsapi.com.au/image/v1/0fa717523d10364022133ae11883b831" height="230px"alt="Card image cap" />
+          <CardImg top width="50%" src="https://cdn.newsapi.com.au/image/v1/0fa717523d10364022133ae11883b831" height="280px"alt="Card image cap" />
           <CardBody>
             <CardTitle>Cold Immersion</CardTitle>
             <CardSubtitle></CardSubtitle>
             <CardText>Cold immersion is one of the most powerful habits a human can integrate into their lives. Popularized by Whim Hoff, commitment to this habit can have extraordinary results both physically and mentally  </CardText>
-            <Link className="btn btn-primary" to="/coldShower">
+            <Link className="btn btn-primary" to="/coldShowers/new">
             Take The Cold Shower Challenge
             </Link>
           </CardBody>
