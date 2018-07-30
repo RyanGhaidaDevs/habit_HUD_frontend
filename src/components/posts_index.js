@@ -32,25 +32,17 @@ class PostsIndex extends Component {
        <Link to={`/posts/${post.id}`}> 
        {post.created_at.split("T")[0]}
        
-       </Link> {this.graphPosts()}
+       </Link> 
+       <div key={post.created_at}>
+       Word Count: {post.body.split(" ").length}
+       </div> 
 
        </li>
      );
    });
   }
 
-  
 
-  graphPosts() {
-    let arr = []; 
-    return _.map(this.props.posts, post => {
-    return (
-      <div key={post.created_at}>
-       Word Count: {post.body.split(" ").length}
-      </div> 
-    )
-  });
-  } 
 
   renderMeditations() {
     //since we are mapping over an obj; first arg is Obj and second is map fn().  
@@ -60,22 +52,15 @@ class PostsIndex extends Component {
        <Link to={`/guidedMeditations/${meditation.id}`}> 
        {meditation.created_at.split("T")[0]}
        </Link> 
+       <div key={meditation.created_at}>
+       Mood Ratings - Before: {meditation.before} | After: {meditation.after}
+       </div>
+
        </li>
      );
    });
   }
 
-  graphMeditations() {
-    let arr = []; 
-    return _.map(this.props.meditations, meditation => {
-    return (
-      <div key={meditation.created_at}>
-       Before: {meditation.before}
-       After: {meditation.after}
-      </div> 
-    )
-  });
-  } 
 
   renderBreathingExercises() {
     //since we are mapping over an obj; first arg is Obj and second is map fn().  
@@ -85,6 +70,9 @@ class PostsIndex extends Component {
        <Link to={`/breathingExercises/${breathingExercise.id}`}> 
        {breathingExercise.created_at.split("T")[0]}
        </Link>
+       <div key={breathingExercise.created_at}> 
+       Breath retention times - Round 1: {breathingExercise.round1} sec | Round 2: {breathingExercise.round2} sec | Round 3: {breathingExercise.round3} sec
+       </div> 
        </li>
      );
    });
@@ -98,6 +86,9 @@ class PostsIndex extends Component {
        <Link to={`/coldShowers/${coldShower.id}`}> 
        {coldShower.created_at.split("T")[0]}
        </Link>
+       <div key={coldShower.created_at}>
+       Cold Shower Time - {coldShower.time} min
+       </div>
        </li>
      );
    });
