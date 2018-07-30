@@ -57,11 +57,7 @@ class ColdShower extends Component {
 
     return(
       <div>
-        <div className="text-xs-center"> 
-          <Link className="btn btn-success" to="/home">
-            Back to Habit HUB 
-          </Link>
-        </div>
+        
         <YouTube
           className="youtube"
           videoId="GShvGXwaijg"
@@ -83,6 +79,11 @@ class ColdShower extends Component {
         <button type="submit" className="btn btn-primary">Submit</button>
         <Link to="/home" className="btn btn-danger"> Cancel </Link>
       </form>
+        <div className="text-xs-center"> 
+          <Link className="btn btn-success" to="/home">
+            Back to Habit HUB 
+          </Link>
+        </div>
       </div>
     )
   }

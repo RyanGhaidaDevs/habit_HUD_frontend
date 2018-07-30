@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPosts, fetchMeditations, fetchBreathingExercises, fetchColdShowers} from '../actions/index';
+import { Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle} from 'reactstrap';
+import { fetchPosts, fetchMeditations, fetchBreathingExercises, fetchColdShowers, fetchGoals} from '../actions/index';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
-import {LineChart} from 'react-easy-chart'
+import Calendar from 'react-calendar';
 
 class PostsIndex extends Component {
-
-  constructor(){
-    super();
+  constructor() {
+    super() 
     this.state = {
-       x: 2, y: 2
-
+      date: new Date()
     }
-    
   }
 
   componentDidMount(){
@@ -21,6 +20,7 @@ class PostsIndex extends Component {
     this.props.fetchMeditations()
     this.props.fetchBreathingExercises()
     this.props.fetchColdShowers()
+    this.props.fetchGoals()
   }
 
   renderPosts() {
@@ -30,22 +30,17 @@ class PostsIndex extends Component {
        <li className="list-group-item" key={post.id}>
        <Link to={`/posts/${post.id}`}> 
        {post.created_at.split("T")[0]}
-       </Link>
+       
+       </Link> 
+       <div key={post.created_at}>
+       Word Count: {post.body.split(" ").length}
+       </div> 
+
        </li>
      );
    });
   }
-
-  graphPosts() {
-    return _.map(this.props.posts, post => {
-    return (
-      <div>
-        {post.body.length}
-      </div> 
-    )
-  });
-  } 
-
+  
   renderMeditations() {
     //since we are mapping over an obj; first arg is Obj and second is map fn().  
    return _.map(this.props.meditations, meditation => {
@@ -53,7 +48,11 @@ class PostsIndex extends Component {
        <li className="list-group-item" key={meditation.id}>
        <Link to={`/guidedMeditations/${meditation.id}`}> 
        {meditation.created_at.split("T")[0]}
-       </Link>
+       </Link> 
+       <div key={meditation.created_at}>
+       Mood Ratings - Before: {meditation.before} | After: {meditation.after}
+       </div>
+
        </li>
      );
    });
@@ -67,6 +66,9 @@ class PostsIndex extends Component {
        <Link to={`/breathingExercises/${breathingExercise.id}`}> 
        {breathingExercise.created_at.split("T")[0]}
        </Link>
+       <div key={breathingExercise.created_at}> 
+       Breath retention times - Round 1: {breathingExercise.round1} sec | Round 2: {breathingExercise.round2} sec | Round 3: {breathingExercise.round3} sec
+       </div> 
        </li>
      );
    });
@@ -80,23 +82,59 @@ class PostsIndex extends Component {
        <Link to={`/coldShowers/${coldShower.id}`}> 
        {coldShower.created_at.split("T")[0]}
        </Link>
+       <div key={coldShower.created_at}>
+       Cold Shower Time - {coldShower.time} min
+       </div>
        </li>
      );
    });
   }
 
+  renderGoals() {
+    //since we are mapping over an obj; first arg is Obj and second is map fn().  
+   return _.map(this.props.goals, goal => {
+     console.log(goal[0].id)
+     return (
+       <div>
+         YOUR GOAL CARD
+       <Card>
+          <CardImg top width="50%" src="https://greatist.com/sites/default/files/goal-setting-feature.jpg" height="320px"alt="Card image cap" />
+          <CardBody>
+            <CardTitle> Goal: {goal[0].body} | by: {goal[0].date}</CardTitle> <br/>
+            <CardSubtitle>Top Reasons I may not succeed: {goal[0].pitfalls}</CardSubtitle> <br/>
+            <CardText>How I plan to overcome my pitfalls: {goal[0].tactics}</CardText> <br/>
+            
+          </CardBody>
+        </Card>
+       </div>
+     );
+   });
+  }
+
+  onChange = date => this.setState({ date })
+ 
   render() {
     return (
       <div>
-       
+        <br/>
+        <div align="center">
+            <Calendar
+              onChange={this.onChange}
+              value={this.state.date}
+            />
+          <br/>
+          {this.renderGoals()}
+        </div>
         <h3> Journal Entries </h3>
         <ul className="list-group">
           {this.renderPosts()}
-          {this.graphPosts()}
+          
+           <br/>
         </ul> 
         <h3> Meditation Logs </h3>
         <ul className="list-group">
           {this.renderMeditations()}
+          
         </ul> 
         <h3> Breathing Logs</h3>
         <ul className="list-group">
@@ -106,7 +144,6 @@ class PostsIndex extends Component {
         <ul className="list-group">
           {this.renderColdShowers()}
         </ul> 
-        <br/>
         <div className="text-xs-center"> 
           <Link className="btn btn-success" to="/home">
             Back to Habit HUB 
@@ -117,10 +154,9 @@ class PostsIndex extends Component {
   }
 }
 
-
 function mapStateToProps(state){
-  return { posts: state.posts, meditations: state.meditations, breathingExercises: state.breathingExercises, coldshowers: state.coldShowers};
+  return { goals: state.goals, posts: state.posts, meditations: state.meditations, breathingExercises: state.breathingExercises, coldshowers: state.coldShowers};
 }
 
 // Shortcut to mapDispatchToProps; Component now has acces to fetchPosts ActionCreator. 
-export default connect(mapStateToProps, { fetchPosts, fetchMeditations, fetchBreathingExercises, fetchColdShowers })(PostsIndex);
+export default connect(mapStateToProps, { fetchPosts, fetchMeditations, fetchBreathingExercises, fetchColdShowers, fetchGoals })(PostsIndex);

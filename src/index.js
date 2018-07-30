@@ -15,6 +15,7 @@ import BreathingExercise from './components/breathingExercise_new';
 import BreathingExerciseShow from './components/breathingExercise_show';
 import ColdShower from './components/coldShower_new';
 import ColdShowerShow from './components/coldShower_show';
+import SOS  from './components/SOS';
 import Login from './components/login';
 import goalStatement from './components/goalStatement';
 
@@ -40,6 +41,7 @@ ReactDOM.render(
         <Route path="/coldShowers/new" component={ColdShower} />
         <Route path="/coldShowers/:id" component={ColdShowerShow} />
         <Route path="/goalStatement" component={goalStatement} /> 
+        <Route path="/SOS" component={SOS} />
         <Route path="/" component={PostsIndex} /> 
       </Switch>
     </div>
