@@ -18,11 +18,14 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
           <Navbar.Brand>
             <Link to="/">View Your Logs</Link>
           </Navbar.Brand>
+          <Navbar.Brand>
+            <Link to="/SOS">SOS</Link>
+          </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight>
-            <NavItem href="/signup">Signup</NavItem>
+            <NavItem href="/login">Signup</NavItem>
             <NavItem href="/login">Login</NavItem>
           </Nav>
         </Navbar.Collapse>
