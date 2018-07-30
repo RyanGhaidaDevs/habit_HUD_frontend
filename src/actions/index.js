@@ -162,7 +162,7 @@ export function fetchMeditation(id) {
 }
 
 export function deleteMeditation(id, callback) {
-  axios.delete(`${ROOT_URL}/guidedmediations/${id}`).then(()=> callback());
+  axios.delete(`${ROOT_URL}/guidedmeditations/${id}`).then(()=> callback());
 
   return {
     type: DELETE_MEDITATION,

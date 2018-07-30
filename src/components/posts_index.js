@@ -3,17 +3,18 @@ import { connect } from 'react-redux';
 import { fetchPosts, fetchMeditations, fetchBreathingExercises, fetchColdShowers} from '../actions/index';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
-import {LineChart} from 'react-easy-chart'
+import {Bar} from 'react-chartjs-2';
+
+
+
 
 class PostsIndex extends Component {
-
-  constructor(){
-    super();
+  constructor() {
+    super() 
     this.state = {
-       x: 2, y: 2
-
+      data: [1,2,3,4,5,6,7] 
     }
-    
+
   }
 
   componentDidMount(){
@@ -30,17 +31,22 @@ class PostsIndex extends Component {
        <li className="list-group-item" key={post.id}>
        <Link to={`/posts/${post.id}`}> 
        {post.created_at.split("T")[0]}
-       </Link>
+       
+       </Link> {this.graphPosts()}
+
        </li>
      );
    });
   }
 
+  
+
   graphPosts() {
+    let arr = []; 
     return _.map(this.props.posts, post => {
     return (
-      <div>
-        {post.body.length}
+      <div key={post.created_at}>
+       Word Count: {post.body.split(" ").length}
       </div> 
     )
   });
@@ -53,11 +59,23 @@ class PostsIndex extends Component {
        <li className="list-group-item" key={meditation.id}>
        <Link to={`/guidedMeditations/${meditation.id}`}> 
        {meditation.created_at.split("T")[0]}
-       </Link>
+       </Link> 
        </li>
      );
    });
   }
+
+  graphMeditations() {
+    let arr = []; 
+    return _.map(this.props.meditations, meditation => {
+    return (
+      <div key={meditation.created_at}>
+       Before: {meditation.before}
+       After: {meditation.after}
+      </div> 
+    )
+  });
+  } 
 
   renderBreathingExercises() {
     //since we are mapping over an obj; first arg is Obj and second is map fn().  
@@ -86,17 +104,21 @@ class PostsIndex extends Component {
   }
 
   render() {
+
     return (
       <div>
        
         <h3> Journal Entries </h3>
         <ul className="list-group">
           {this.renderPosts()}
-          {this.graphPosts()}
+           <br/>
+          
         </ul> 
+      
         <h3> Meditation Logs </h3>
         <ul className="list-group">
           {this.renderMeditations()}
+          
         </ul> 
         <h3> Breathing Logs</h3>
         <ul className="list-group">

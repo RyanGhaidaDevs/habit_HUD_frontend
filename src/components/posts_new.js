@@ -1,5 +1,5 @@
 import React, { Component } from 'react' ; 
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, Form } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createPost } from '../actions';
@@ -46,14 +46,14 @@ class PostsNew extends Component {
     const { handleSubmit } = this.props
 
     return(
-      //Redux form's handleSubmit will handle validation before passing to onSubmit
+      <div>
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
       <Field 
           label="user_id"
           name="user_id"
           component={this.renderField}
         /> 
-        <Field 
+        <Field
           label="body"
           name="body"
           component={this.renderField}
@@ -61,6 +61,12 @@ class PostsNew extends Component {
         <button type="submit" className="btn btn-primary">Submit</button>
         <Link to="/home" className="btn btn-danger"> Cancel </Link>
       </form>
+        <div className="text-xs-center"> 
+          <Link className="btn btn-success" to="/home">
+            Back to Habit HUB 
+          </Link>
+        </div>
+      </div>
     )
   }
 }

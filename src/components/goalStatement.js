@@ -50,14 +50,10 @@ class GoalStatement extends Component {
 
     return(
       <div>
-        <div className="text-xs-center"> 
-          <Link className="btn btn-success" to="/home">
-            Back to Habit HUB 
-          </Link>
-        </div>
+        
         <div className="header">
           <h2> Congratulations on beginning your journey to a better Self! </h2 >
-          <h3> Goal statements are the most important part of any self-bettering endeavour; there a few rules that, if utlized, can greatly increase your chance of success. </h3>
+          
         </div>
         <div className="image-blurred-edge">
           <img src="http://www.simonlee.online/wp-content/uploads/2015/05/mountainpath.jpg" alt="text" className="image"/> <br/>
@@ -86,6 +82,11 @@ class GoalStatement extends Component {
           <button type="submit" className="btn btn-primary">Submit</button>
           <Link to="/home" className="btn btn-danger"> Cancel </Link>
       </form>
+        <div className="text-xs-center"> 
+          <Link className="btn btn-success" to="/home">
+            Back to Habit HUB 
+          </Link>
+        </div>
 
       </div>
     )
