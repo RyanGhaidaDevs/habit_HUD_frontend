@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchPosts, fetchMeditations, fetchBreathingExercises, fetchColdShowers} from '../actions/index';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
-import {Bar} from 'react-chartjs-2';
+import Calendar from 'react-calendar';
 
 
 
@@ -12,7 +12,7 @@ class PostsIndex extends Component {
   constructor() {
     super() 
     this.state = {
-      data: [1,2,3,4,5,6,7] 
+      date: new Date()
     }
 
   }
@@ -94,18 +94,27 @@ class PostsIndex extends Component {
    });
   }
 
+  onChange = date => this.setState({ date })
+ 
+
   render() {
 
     return (
       <div>
-       
+        <br/>
+         
+        <div align="center">
+            <Calendar
+              onChange={this.onChange}
+              value={this.state.date}
+            />
+          <br/>
+        </div>
         <h3> Journal Entries </h3>
         <ul className="list-group">
           {this.renderPosts()}
            <br/>
-          
         </ul> 
-      
         <h3> Meditation Logs </h3>
         <ul className="list-group">
           {this.renderMeditations()}
@@ -119,12 +128,12 @@ class PostsIndex extends Component {
         <ul className="list-group">
           {this.renderColdShowers()}
         </ul> 
-        <br/>
         <div className="text-xs-center"> 
           <Link className="btn btn-success" to="/home">
             Back to Habit HUB 
           </Link>
         </div>
+      
       </div>
     );
   }
