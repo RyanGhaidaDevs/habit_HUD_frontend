@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 import { createGoal } from '../actions';
 import '../style/style.css'
 
-
- 
- 
 class GoalStatement extends Component {
 
   renderField(field) {
@@ -38,7 +35,7 @@ class GoalStatement extends Component {
   onSubmit(values) {
     //bind(this); this === component scope
     //values is an Obj with all our form inputs.
-    this.props.createPost(values, () => {
+    this.props.createGoal(values, () => {
       //this.props.history.push('path') will send user to specific path
       this.props.history.push('/home');
     });
@@ -52,7 +49,7 @@ class GoalStatement extends Component {
       <div>
         
         <div className="header">
-          <h2> Congratulations on beginning your journey to a better Self! </h2 >
+          <h2> Congratulations on beginning your Journey! </h2 >
           
         </div>
         <div className="image-blurred-edge">
@@ -60,7 +57,11 @@ class GoalStatement extends Component {
         </div>
         <div className="header"> 
        
-        <h3> Goals must be actionable, concise in their definition and with a set time-frame</h3>
+        <h3> Goals must be: </h3> <br/>
+        <h4> Actionable: Able to be acted on. </h4>
+        <h4> Specific: Give details! </h4> 
+        <h4> Realistic: What is a realistic time-frame to do this? Account for failure !</h4> 
+        <img src="https://www.fullfunctionrehab.com/wp-content/uploads/2018/01/goals22.jpg" alt="text" className="image" />
         </div>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field 
@@ -74,11 +75,20 @@ class GoalStatement extends Component {
             component={this.renderField}
           /> 
           <Field 
-            label="What realistic time-frame are you allocating for yourself? (in days)"
+            label="When would you like to accomplish this by (in days)?"
             name="date"
             component={this.renderField}
           /> 
-                <h4> Once submitted you will not be able to edit this, so be certain you adhered to the parameters defined above!</h4>
+          <Field 
+            label="What are the three most likely reasons you will fail?"
+            name="pitfalls"
+            component={this.renderField}
+          /> 
+          <Field 
+            label="How can you anticipate and avoid these pitfalls?"
+            name="tactics"
+            component={this.renderField}
+          /> 
           <button type="submit" className="btn btn-primary">Submit</button>
           <Link to="/home" className="btn btn-danger"> Cancel </Link>
       </form>
@@ -99,14 +109,20 @@ class GoalStatement extends Component {
 function validate(values) {
   const errors = {};
 
+  if(!values.user_id){
+    errors.user_id = "Must be 1 (pending feature)"
+  }
   if(!values.body){
     errors.body = "Enter your goal statement here";
   }
   if(!values.date){
     errors.date = "Enter a date";
   }
-  if(!values.user_id){
-    errors.user_id = "Must be 1 (pending feature)"
+  if(!values.pitfalls){
+    errors.pitfalls = "Please enter a some reasons you've failed in the apst! We both know you have them...";
+  }
+  if(!values.tactics){
+    errors.tactics = "Please enter some tactics to solve these obstacles!";
   }
 
   return errors;
