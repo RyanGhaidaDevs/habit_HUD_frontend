@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchGoal, deleteGoal } from '../actions'
+import { fetchGoal, deleteGoal } from '../actions';
+import { Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle} from 'reactstrap';
 
 
 
@@ -30,19 +32,32 @@ class GoalShow extends Component {
       return <div> Loading... </div>
     }
 
+
+
     return(
       <div> 
-        <button 
-        className="btn btn-danger pull-xs-right"
-        onClick={this.onDeleteClick.bind(this)}
-        >
-        Delete Goal Card
-        </button>
-        <h3 align="center">Goal From: {goal.created_at.split("T")[0]} </h3> <br/>
-        <h4> Goal Date: {goal.date} </h4> <br/>
-        <h4> Goal: {goal.body} </h4> <br/>
-        <h4> Most likely Pitfalls: {goal.pitfalls} </h4> <br/>
-        <h4> Tactics: {goal.tactics} </h4> <br/>
+        <br/>
+        <div key={goal.id} align="center">
+         
+         <br/>
+         <Card >
+            <h2> YOUR GOAL CARD </h2>
+            <h3> {goal.body} | by: {goal.date}</h3>
+            <CardImg top width="50%" src="https://greatist.com/sites/default/files/goal-setting-feature.jpg" height="320px"alt="Card image cap" />
+            <CardBody>
+            <CardTitle>  </CardTitle> <br/>
+            <CardSubtitle> <h4>Top Reasons I may not succeed: {goal.pitfalls} </h4></CardSubtitle> <br/>
+            <CardText> <h4>How I plan to overcome my pitfalls: {goal.tactics} </h4></CardText> <br/>
+            </CardBody>
+            <button 
+              className="btn btn-danger pull-xs-center"
+              onClick={this.onDeleteClick.bind(this)}>
+              Delete Goal Card
+              </button> 
+              <br/>
+        </Card>
+        </div>
+        <div> <br/> <br/>
         <div className="text-xs-center"> 
           <Link className="btn btn-primary" to="/" > 
           Back to index 
@@ -52,6 +67,7 @@ class GoalShow extends Component {
           <Link className="btn btn-success" to="/home">
             Back to Habit HUB 
           </Link>
+          </div>
         </div>
       </div>
     );

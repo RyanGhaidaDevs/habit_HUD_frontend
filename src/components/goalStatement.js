@@ -50,14 +50,13 @@ class GoalStatement extends Component {
         
         <div className="header">
           <h2> Congratulations on beginning your Journey! </h2 >
-          
         </div>
         <div className="image-blurred-edge">
           <img src="http://www.simonlee.online/wp-content/uploads/2015/05/mountainpath.jpg" alt="text" className="image"/> <br/>
         </div>
         <div className="header"> 
        
-        <h3> Goals must be: </h3> <br/>
+        <h3> Goals must be: </h3> 
         <h4> Actionable: Able to be acted on. </h4>
         <h4> Specific: Give details! </h4> 
         <h4> Realistic: What is a realistic time-frame to do this? Account for failure !</h4> 
@@ -119,7 +118,7 @@ function validate(values) {
     errors.date = "Enter a date";
   }
   if(!values.pitfalls){
-    errors.pitfalls = "Please enter a some reasons you've failed in the apst! We both know you have them...";
+    errors.pitfalls = "Please enter a some reasons you've failed in the past! We both know you have them...";
   }
   if(!values.tactics){
     errors.tactics = "Please enter some tactics to solve these obstacles!";

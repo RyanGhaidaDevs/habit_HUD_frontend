@@ -38,7 +38,7 @@ class BreathingExerciseShow extends Component {
         >
         Delete breathing exercise
         </button>
-        <h3 align="center">Journal log from: {breathingExercise.created_at.split("T")[0]} </h3> <br/>
+        <h3 align="center">Breathing log from: {breathingExercise.created_at.split("T")[0]} </h3> <br/>
         <h4> Round 1 time: {breathingExercise.round1} </h4>
         <h4> Round 2 time: {breathingExercise.round2} </h4>
         <h4> Round 3 time: {breathingExercise.round3} </h4> <br/>

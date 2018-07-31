@@ -97,13 +97,15 @@ class PostsIndex extends Component {
      console.log("goal", goal)
      return (
        <div key={goal.id}>
-         YOUR GOAL CARD
-       <Card>
+        
+       <Card >
+          <h2> YOUR GOAL CARD </h2>
+          <h3> {goal.body} | by: {goal.date}</h3>
           <CardImg top width="50%" src="https://greatist.com/sites/default/files/goal-setting-feature.jpg" height="320px"alt="Card image cap" />
           <CardBody>
-            <CardTitle> Goal: {goal.body} | by: {goal.date}</CardTitle> <br/>
-            <CardSubtitle>Top Reasons I may not succeed: {goal.pitfalls}</CardSubtitle> <br/>
-            <CardText>How I plan to overcome my pitfalls: {goal.tactics}</CardText> <br/>
+            <CardTitle>  </CardTitle> <br/>
+            <CardSubtitle> <h4>Top Reasons I may not succeed: {goal.pitfalls} </h4></CardSubtitle> <br/>
+            <CardText> <h4>How I plan to overcome my pitfalls: {goal.tactics} </h4></CardText> <br/>
           </CardBody>
           <Link  className="btn btn-warning" to={`/goals/${goal.id}`}> 
             Edit Goal
@@ -119,7 +121,7 @@ class PostsIndex extends Component {
  
   render() {
     return (
-      <div>
+      <div id="homepage">
         <div align="center">
         {this.renderGoals()}
         </div>

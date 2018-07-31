@@ -9,7 +9,7 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
 
   render() {
       return (
-      <div>
+      <div >
         <Navbar fluid collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
@@ -34,9 +34,9 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
         <Card body outline color="primary">
           <CardImg top width="50%" src="https://ideapod.com/wp-content/uploads/2017/12/stoicism-marcus-aurelius-leadership-e1498983897275.jpg" alt="Card image cap" />
           <CardBody>
-            <CardTitle>Journal Entry</CardTitle>
+            <CardTitle> <h3>Journal Entry </h3></CardTitle>
             <CardSubtitle></CardSubtitle>
-            <CardText>A documented failure is infinitely more valuable than an undocumented one.</CardText>
+            <CardText> <h4><i>A documented failure is infinitely more valuable than an undocumented one.</i> </h4></CardText>
             <Link className="btn btn-primary" to="/posts/new">
             Submit Your Daily Log
             </Link>
@@ -45,9 +45,9 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
         <Card>
           <CardImg top width="50%" src="https://i1.wp.com/blog.mindvalley.com/wp-content/uploads/2018/02/Alan-Watts.jpeg?fit=740%2C416&ssl=1" height="280px"alt="Card image cap" />
           <CardBody>
-            <CardTitle>Guided Meditation</CardTitle>
+            <CardTitle><h3>Guided Meditation</h3></CardTitle>
             <CardSubtitle></CardSubtitle>
-            <CardText>A clear mind is a prerequisite to any successful endeavour</CardText>
+            <CardText><h4><i>A clear mind is a prerequisite to any successful endeavour.</i></h4></CardText>
             <Link className="btn btn-primary" to="/guidedMeditations/new">
             Begin Your Guided Meditation
             </Link>
@@ -56,9 +56,9 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
         <Card>
           <CardImg top width="50%" src="http://caldwelltreecare.com/wp-content/uploads/2015/03/tree-care.jpg" height="280px"alt="Card image cap" />
           <CardBody>
-            <CardTitle>Breathing Exercise</CardTitle>
+            <CardTitle><h3>Breathing Exercise</h3></CardTitle>
             <CardSubtitle></CardSubtitle>
-            <CardText>Challenging breathing exercise; made popular by Whim Hoff</CardText>
+            <CardText><h4><i>Challenging breathing exercise to dissipate anxiety, brain-fog and negativity.</i></h4></CardText>
             <Link className="btn btn-primary" to="/breathingExercises/new">
             Take The Breathing Challenge
             </Link>
@@ -67,9 +67,9 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
         <Card>
           <CardImg top width="50%" src="https://cdn.newsapi.com.au/image/v1/0fa717523d10364022133ae11883b831" height="280px"alt="Card image cap" />
           <CardBody>
-            <CardTitle>Cold Immersion</CardTitle>
+            <CardTitle><h3>Cold Immersion</h3></CardTitle>
             <CardSubtitle></CardSubtitle>
-            <CardText>Cold immersion is one of the most powerful habits a human can integrate into their lives. Popularized by Whim Hoff, commitment to this habit can have extraordinary results both physically and mentally  </CardText>
+            <CardText><h4><i>Cold immersion is one of the most powerful habits a human can integrate into their lives; made popular by Whim Hoff.</i></h4> </CardText>
             <Link className="btn btn-primary" to="/coldShowers/new">
             Take The Cold Shower Challenge
             </Link>
@@ -80,21 +80,3 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
   };
   
   }
-
-
-// function mapStateToProps(state) {
-//   return {
-//     books: state.books
-//   }; 
-// }
-
-//Anything returned from this function will end up as props to the Home container. 
-// function mapDispatchToProps(dispatch) {
-//   //Whenever selectBook is called, the result should be passed to all our reducers
-//   return bindActionCreators({ selectBook: selectBook}, dispatch)
-// }
-
-// Promote Home from a component to a container, it needs to know about this
-//new dispatch method, selectBook. Make it available 
-// as a prop. 
-// export default connect(mapStateToProps, mapDispatchToProps)(Home); 

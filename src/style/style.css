@@ -21,5 +21,9 @@ form a {
 
 .header {
   text-align: center;
-
 }
+
+.background {
+  width: 100vw;
+}
+
