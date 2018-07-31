@@ -30,10 +30,9 @@ class PostsIndex extends Component {
        <li className="list-group-item" key={post.id}>
        <Link to={`/posts/${post.id}`}> 
        {post.created_at.split("T")[0]}
-       
        </Link> 
        <div key={post.created_at}>
-       Word Count: {post.body.split(" ").length}
+       Word Count: {post.body.split(" ").length-1}
        </div> 
 
        </li>
@@ -77,6 +76,8 @@ class PostsIndex extends Component {
   renderColdShowers() {
     //since we are mapping over an obj; first arg is Obj and second is map fn().  
    return _.map(this.props.coldshowers, coldShower => {
+    console.log("coldShower", coldShower)
+
      return (
        <li className="list-group-item" key={coldShower.id}>
        <Link to={`/coldShowers/${coldShower.id}`}> 
@@ -93,19 +94,22 @@ class PostsIndex extends Component {
   renderGoals() {
     //since we are mapping over an obj; first arg is Obj and second is map fn().  
    return _.map(this.props.goals, goal => {
-     console.log(goal[0].id)
+     console.log("goal", goal)
      return (
-       <div>
+       <div key={goal.id}>
          YOUR GOAL CARD
        <Card>
           <CardImg top width="50%" src="https://greatist.com/sites/default/files/goal-setting-feature.jpg" height="320px"alt="Card image cap" />
           <CardBody>
-            <CardTitle> Goal: {goal[0].body} | by: {goal[0].date}</CardTitle> <br/>
-            <CardSubtitle>Top Reasons I may not succeed: {goal[0].pitfalls}</CardSubtitle> <br/>
-            <CardText>How I plan to overcome my pitfalls: {goal[0].tactics}</CardText> <br/>
-            
+            <CardTitle> Goal: {goal.body} | by: {goal.date}</CardTitle> <br/>
+            <CardSubtitle>Top Reasons I may not succeed: {goal.pitfalls}</CardSubtitle> <br/>
+            <CardText>How I plan to overcome my pitfalls: {goal.tactics}</CardText> <br/>
           </CardBody>
+          <Link  className="btn btn-warning" to={`/goals/${goal.id}`}> 
+            Edit Goal
+          </Link> 
         </Card>
+        
        </div>
      );
    });
@@ -116,6 +120,9 @@ class PostsIndex extends Component {
   render() {
     return (
       <div>
+        <div align="center">
+        {this.renderGoals()}
+        </div>
         <br/>
         <div align="center">
             <Calendar
@@ -123,7 +130,12 @@ class PostsIndex extends Component {
               value={this.state.date}
             />
           <br/>
-          {this.renderGoals()}
+          
+        </div>
+        <div className="text-xs-center"> 
+          <Link className="btn btn-success" to="/home">
+            Back to Habit HUB 
+          </Link>
         </div>
         <h3> Journal Entries </h3>
         <ul className="list-group">
@@ -144,11 +156,7 @@ class PostsIndex extends Component {
         <ul className="list-group">
           {this.renderColdShowers()}
         </ul> 
-        <div className="text-xs-center"> 
-          <Link className="btn btn-success" to="/home">
-            Back to Habit HUB 
-          </Link>
-        </div>
+        
       </div>
     );
   }

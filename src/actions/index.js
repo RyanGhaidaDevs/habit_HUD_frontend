@@ -18,7 +18,9 @@ export const DELETE_COLDSHOWER = 'delete_coldshower';
 export const CREATE_LOGIN = 'create_login';
 export const CREATE_GOAL = 'create_goal';
 export const FETCH_GOAL = 'fetch_goal';
-export const FETCH_GOALS = 'fetch_goal';
+export const FETCH_GOALS = 'fetch_goals';
+export const DELETE_GOAL = 'delete_goal';
+
 
 const ROOT_URL = 'http://localhost:4000';
 
@@ -52,6 +54,14 @@ export function fetchGoals() {
     type: FETCH_GOALS,
     // redux-promise will deal with this promise in our payload. By the time it hits our reduces the list of posts will be available. 
     payload: request
+  };
+}
+export function deleteGoal(id, callback) {
+  axios.delete(`${ROOT_URL}/goals/${id}`).then(()=> callback());
+
+  return {
+    type: DELETE_GOAL,
+    payload: id
   };
 }
 

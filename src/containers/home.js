@@ -13,13 +13,13 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
         <Navbar fluid collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to="/goalStatement">Goal Statement</Link>
+            <Link to="/goals">Start Your Journey</Link>
           </Navbar.Brand>
           <Navbar.Brand>
             <Link to="/">View Your Logs</Link>
           </Navbar.Brand>
           <Navbar.Brand>
-            <Link to="/SOS">SOS</Link>
+            <Link to="/SOS" >SOS</Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>

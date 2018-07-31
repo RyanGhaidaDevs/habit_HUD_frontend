@@ -2,7 +2,7 @@ import React, { Component } from 'react' ;
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { createGoal } from '../actions';
+import { createGoal  } from '../actions';
 import '../style/style.css'
 
 class GoalStatement extends Component {
