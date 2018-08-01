@@ -18,6 +18,10 @@ class SOS extends Component {
 
     return(
       <div> 
+        <br/>
+        <div align="center">
+        <img  src="https://quotefancy.com/media/wallpaper/3840x2160/282692-Lance-Armstrong-Quote-Pain-is-temporary-It-may-last-a-minute-or-an.jpg" alt="text" width="80%"/>
+        </div>
         <YouTube
           className="youtube"
           videoId="QlWIXoH8p1s"
@@ -29,6 +33,7 @@ class SOS extends Component {
             Back to Battle
           </Link>
         </div>
+       
       </div>
     );
   }

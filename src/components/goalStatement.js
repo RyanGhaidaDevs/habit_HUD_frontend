@@ -74,7 +74,7 @@ class GoalStatement extends Component {
             component={this.renderField}
           /> 
           <Field 
-            label="When would you like to accomplish this by (in days)?"
+            label="What date would you like to accomplish this by?"
             name="date"
             component={this.renderField}
           /> 
