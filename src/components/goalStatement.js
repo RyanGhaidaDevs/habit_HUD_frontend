@@ -46,7 +46,7 @@ class GoalStatement extends Component {
     const { handleSubmit } = this.props
 
     return(
-      <div>
+      <div className="goal">
         
         <div className="header">
           <h2> Congratulations on beginning your Journey! </h2 >
@@ -56,11 +56,10 @@ class GoalStatement extends Component {
         </div>
         <div className="header"> 
        
-        <h3> Goals must be: </h3> 
-        <h4> Actionable: Able to be acted on. </h4>
-        <h4> Specific: Give details! </h4> 
-        <h4> Realistic: What is a realistic time-frame to do this? Account for failure !</h4> 
+        
         <img src="https://www.fullfunctionrehab.com/wp-content/uploads/2018/01/goals22.jpg" alt="text" className="image" />
+        <h3> Actionable | Specific | Realistic </h3> 
+        
         </div>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field 

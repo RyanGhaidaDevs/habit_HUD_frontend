@@ -27,3 +27,19 @@ form a {
   width: 100vw;
 }
 
+.goal {
+  background-image: url('https://www.venafi.com/themes/venafi/images/infogain_bg.png');
+  background-repeat: no-repeat;
+  background-position: 50% 51.5%;
+  background-size: 100% 50%;
+}
+
+.index {
+  background-image: url('https://www.venafi.com/themes/venafi/images/infogain_bg.png');
+  background-repeat: no-repeat;
+  background-position: 50% 53.5%;
+  background-size: 100% 80%;
+}
+
+
+

@@ -121,7 +121,7 @@ class PostsIndex extends Component {
  
   render() {
     return (
-      <div id="homepage">
+      <div  className="index">
         <div align="center">
         {this.renderGoals()}
         </div>

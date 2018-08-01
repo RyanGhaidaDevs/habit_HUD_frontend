@@ -56,13 +56,16 @@ class BreathingExercise extends Component {
     };
 
     return(
-      <div>
+      <div className="breathing">
       <YouTube
       className="youtube"
       videoId="LU6Oi80n5J4"
       opts={opts}
       onReady={this._onReady}
       />
+      <div align="center">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5ASCYpuZJtAOa-nrvhaW0a3EPMXTgw4PsjTaYBCsEUCYhAwtcCg" />
+      </div>
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
       <Field 
           label="user_id"

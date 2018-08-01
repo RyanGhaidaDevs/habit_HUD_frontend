@@ -64,6 +64,9 @@ class GuidedMeditation extends Component {
           opts={opts}
           onReady={this._onReady}
         />
+        <div align="center">
+        <img src="https://iperceptive.com/quotes/pictures/alan-watts-quote-1.png" />
+          </div>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <Field 
           label="user_id"

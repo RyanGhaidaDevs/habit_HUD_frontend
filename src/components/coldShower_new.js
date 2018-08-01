@@ -58,12 +58,16 @@ class ColdShower extends Component {
     return(
       <div>
         
+        
         <YouTube
           className="youtube"
           videoId="GShvGXwaijg"
           opts={opts}
           onReady={this._onReady}
-        />
+        /> 
+        <div align="center">
+        <img src="https://www.solefit.ca/wp-content/uploads/2018/03/icman-1000x400.jpg" />
+        </div>
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
       <Field 
           label="user_id"

@@ -47,6 +47,7 @@ class PostsNew extends Component {
 
     return(
       <div>
+        <img src="http://i.imgur.com/KRuD5.jpg.png"/> 
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
       <Field 
           label="user_id"
