@@ -76,7 +76,6 @@ class PostsIndex extends Component {
   renderColdShowers() {
     //since we are mapping over an obj; first arg is Obj and second is map fn().  
    return _.map(this.props.coldshowers, coldShower => {
-    console.log("coldShower", coldShower)
 
      return (
        <li className="list-group-item" key={coldShower.id}>
@@ -139,22 +138,20 @@ class PostsIndex extends Component {
             Back to Habit HUB 
           </Link>
         </div>
-        <h3> Journal Entries </h3>
+        <h3><i><b> Journal Entries</b></i> </h3>
         <ul className="list-group">
           {this.renderPosts()}
-          
-           <br/>
         </ul> 
-        <h3> Meditation Logs </h3>
+        <h3><i><b> Meditation Logs</b></i> </h3>
         <ul className="list-group">
           {this.renderMeditations()}
           
         </ul> 
-        <h3> Breathing Logs</h3>
+        <h3><i><b> Breathing Logs</b></i></h3>
         <ul className="list-group">
           {this.renderBreathingExercises()}
         </ul> 
-        <h3> Cold Immersion Logs</h3>
+        <h3><i><b> Cold Immersion Logs</b></i></h3>
         <ul className="list-group">
           {this.renderColdShowers()}
         </ul> 

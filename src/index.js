@@ -19,7 +19,7 @@ import SOS  from './components/SOS';
 import Login from './components/login';
 import goalStatement from './components/goalStatement';
 import goalStatmentShow from './components/goalStatement_show';
-
+// import fractalTree from './components/fractalTree';
 
 
 //Added redux-promise to handle asych fetches; add as first argument. 
@@ -44,6 +44,7 @@ ReactDOM.render(
         <Route path="/goals/:id" component={goalStatmentShow} /> 
         <Route path="/goals" component={goalStatement} /> 
         <Route path="/SOS" component={SOS} />
+        {/* <Route path="/yourFractalTree" component={fractalTree} /> */}
         <Route path="/" component={PostsIndex} /> 
       </Switch>
     </div>

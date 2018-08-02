@@ -47,7 +47,7 @@ class PostsNew extends Component {
 
     return(
       <div>
-        <img src="http://i.imgur.com/KRuD5.jpg.png"/> 
+        <img src="http://i.imgur.com/KRuD5.jpg.png" alt="text"/> 
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
       <Field 
           label="user_id"
@@ -55,7 +55,7 @@ class PostsNew extends Component {
           component={this.renderField}
         /> 
         <Field
-          label="body"
+          label="Journal Entry"
           name="body"
           component={this.renderField}
         /> 
@@ -79,7 +79,7 @@ function validate(values) {
   const errors = {};
 
   if(!values.body){
-    errors.body = "Enter a body!";
+    errors.body = "Enter a Journal Entry; Write anything!";
   }
   if(!values.user_id){
     errors.user_id = "Must be 1 (pending feature)"

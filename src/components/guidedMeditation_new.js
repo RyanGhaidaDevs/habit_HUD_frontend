@@ -65,8 +65,7 @@ class GuidedMeditation extends Component {
           onReady={this._onReady}
         />
         <div align="center">
-        <img src="https://iperceptive.com/quotes/pictures/alan-watts-quote-1.png" />
-          </div>
+        <a data-flickr-embed="true"  href="https://www.flickr.com/photos/158630612@N07/41996817950/in/dateposted-public/" title="oie_2173632cDOm7tWe"><img src="https://farm1.staticflickr.com/855/41996817950_94a9f9320c_z.jpg" width="840" height="420" alt="oie_2173632cDOm7tWe"/></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>          </div>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <Field 
           label="user_id"
@@ -74,17 +73,17 @@ class GuidedMeditation extends Component {
           component={this.renderField}
         /> 
         <Field 
-          label="before"
+          label="Mood Rating: 1-10 before"
           name="before"
           component={this.renderField}
         /> 
         <Field 
-          label="after"
+          label="Mood Rating: 1-10 after"
           name="after"
           component={this.renderField}
         /> 
         <Field 
-          label="insights"
+          label="Insights uncovered"
           name="insights"
           component={this.renderField}
         /> 
