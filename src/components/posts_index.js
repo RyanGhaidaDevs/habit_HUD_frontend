@@ -100,7 +100,7 @@ class PostsIndex extends Component {
        <Card >
           <h2> YOUR GOAL CARD </h2>
           <h3> {goal.body} | by: {goal.date}</h3>
-          <CardImg top width="50%" src="https://greatist.com/sites/default/files/goal-setting-feature.jpg" height="320px"alt="Card image cap" />
+          <a data-flickr-embed="true"  href="https://www.flickr.com/photos/158630612@N07/29937877368/in/dateposted-public/" title="oie_2192627ELZq1CK5"><img src="https://farm2.staticflickr.com/1780/29937877368_6645841cea_z.jpg" width="640" height="332" alt="oie_2192627ELZq1CK5"/></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
           <CardBody>
             <CardTitle>  </CardTitle> <br/>
             <CardSubtitle> <h4>Top Reasons I may not succeed: {goal.pitfalls} </h4></CardSubtitle> <br/>
