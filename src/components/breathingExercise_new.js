@@ -64,7 +64,7 @@ class BreathingExercise extends Component {
       onReady={this._onReady}
       />
       <div align="center">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5ASCYpuZJtAOa-nrvhaW0a3EPMXTgw4PsjTaYBCsEUCYhAwtcCg" />
+      <img src="http://themocracy.com/wp-content/uploads/2016/09/Tree.jpg" alt="text" width="900px"/>
       </div>
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
       <Field 

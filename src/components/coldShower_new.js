@@ -66,8 +66,7 @@ class ColdShower extends Component {
           onReady={this._onReady}
         /> 
         <div align="center">
-        <img src="https://www.solefit.ca/wp-content/uploads/2018/03/icman-1000x400.jpg" />
-        </div>
+        <a data-flickr-embed="true"  href="https://www.flickr.com/photos/158630612@N07/29935939548/in/dateposted-public/" title="oie_2173220Vn9J50p0"><img src="https://farm2.staticflickr.com/1815/29935939548_d86de18878_z.jpg" width="840" height="356" alt="oie_2173220Vn9J50p0"/></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>        </div>
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
       <Field 
           label="user_id"

@@ -49,18 +49,18 @@ class GoalStatement extends Component {
       <div className="goal">
         
         <div className="header">
-          <h2> Congratulations on beginning your Journey! </h2 >
+          <h2> Welcome </h2 >
         </div>
-        <div className="image-blurred-edge">
-          <img src="http://www.simonlee.online/wp-content/uploads/2015/05/mountainpath.jpg" alt="text" className="image"/> <br/>
-        </div>
-        <div className="header"> 
+        <div align="center">
+        <a data-flickr-embed="true"  href="https://www.flickr.com/photos/158630612@N07/28869354387/in/dateposted-public/" title="Silhouettes of tourists hiking on Bromo mountain"><img src="https://farm2.staticflickr.com/1813/28869354387_67726ae6a0_z.jpg" width="840" height="626" alt="Silhouettes of tourists hiking on Bromo mountain"/></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>        </div>
+        <div className="header"> <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
        
         
         <img src="https://www.fullfunctionrehab.com/wp-content/uploads/2018/01/goals22.jpg" alt="text" className="image" />
         <h3> Actionable | Specific | Realistic </h3> 
         
         </div>
+        <br/>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field 
             label="user_id"
@@ -83,7 +83,7 @@ class GoalStatement extends Component {
             component={this.renderField}
           /> 
           <Field 
-            label="How can you anticipate and avoid these pitfalls?"
+            label="Now that you've anticipated these, how can you strategically avoid these pitfalls?"
             name="tactics"
             component={this.renderField}
           /> 
