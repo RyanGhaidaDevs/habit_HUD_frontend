@@ -9,7 +9,7 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
   render() {
       return (
         <div> 
-          Test 2
+          Test 3
         </div> 
       // <div>
       //   <Navbar fluid collapseOnSelect>
